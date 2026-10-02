@@ -72,6 +72,7 @@
         <h2 id="${key}-dialog-title">${escapeHTML(project.title)}</h2>
         <p class="dialog-line">${escapeHTML(project.line)}</p>
         <p class="dialog-summary">${escapeHTML(project.summary)}</p>
+        <nav class="dialog-project-switcher" aria-label="다른 프로젝트 선택"><span>SELECT PROJECT</span>${Object.entries(projects).map(([projectKey, item]) => `<button type="button" data-project="${projectKey}"${projectKey === key ? ' aria-current="true"' : ''}>${escapeHTML(item.number)} ${escapeHTML(item.title)}</button>`).join('')}</nav>
         <div class="dialog-sections">${project.sections.map(([title, body]) => `<section><h3>${escapeHTML(title)}</h3><p>${escapeHTML(body)}</p></section>`).join('')}</div>
         <nav class="dialog-links" aria-label="${escapeHTML(project.title)} 관련 링크">${project.links.map(([label, url]) => `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)} ↗</a>`).join('')}</nav>
       </div>
@@ -79,6 +80,7 @@
     </div>`;
     document.body.append(dialog);
     dialog.querySelectorAll('.dialog-close').forEach(button => button.addEventListener('click', () => dialog.close()));
+    dialog.querySelectorAll('.dialog-project-switcher button').forEach(button => button.addEventListener('click', () => { if (button.dataset.project !== key) openProject(button.dataset.project); }));
     dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
     dialog.addEventListener('close', () => { dialog.querySelectorAll('video').forEach(video => video.pause()); document.body.classList.remove('modal-open'); });
     dialogs.set(key, dialog);

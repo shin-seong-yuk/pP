@@ -16,7 +16,7 @@
   <header class="hero" id="top">
     <p class="hero-kicker">GAME DEVELOPMENT PROGRAMMER</p>
     <h1>신성욱</h1>
-    <p class="hero-subtitle">직접 만들어 검증하고, 사용자에게 닿는 완성을 만듭니다.</p>
+    <p class="hero-subtitle">플레이어의 재미를 출발점으로, 직접 만들고 검증하며 끝까지 다듬습니다.</p>
     <figure class="portrait">
       <img class="portrait-photo" src="assets/profile-shin-seong-uk.png" alt="신성욱 프로필 사진" width="1122" height="1402" fetchpriority="high">
       <figcaption><strong>부산대학교 정보컴퓨터공학과</strong><span>입학 성적 우수 · 4년 전액 장학생</span></figcaption>
@@ -25,11 +25,10 @@
     <div class="hero-skills" aria-label="사용 가능한 기술과 도구">
       <span class="hero-skills-label">SKILLS &amp; TOOLS</span>
       <ul>
-        <li>Unity</li><li>C#</li><li>C++</li><li>Git / GitHub</li><li>URP</li>
-        <li>Input System</li><li>AI Navigation</li><li>Netcode for GameObjects</li><li>Steamworks.NET</li><li>AI 활용</li>
+        <li>Unity</li><li>C#</li><li>C++</li><li>AI 활용</li>
       </ul>
     </div>
-    <nav class="hero-featured" aria-label="대표 프로젝트 바로 보기"><span>SELECTED WORK / 2026</span><a href="#mefense">01 <strong>MeFense</strong><small>수학 × FPS 디펜스 ↗</small></a><a href="#exit-from">02 <strong>EXIT_FROM</strong><small>고스트 퍼즐 액션 ↗</small></a><a href="#not-a-cat">03 <strong>Not A Cat</strong><small>팀 기반 추리 게임 ↗</small></a><a href="#elevator">04 <strong>Elevator</strong><small>멀티플레이 파티 게임 ↗</small></a></nav>
+    <nav class="hero-featured" aria-label="대표 프로젝트 바로 보기"><span>FEATURED PROJECT / ELEVATOR</span><a class="featured-project" href="#elevator" aria-label="대표 프로젝트 Elevator 자세히 보기"><img src="assets/elevator-featured-v2.png" alt="게임 속 엘리베이터 문이 열리고 캐릭터들이 전투한다. 이미지 하단에는 게임 제목 Elevator가 적혀 있다" width="1672" height="941" fetchpriority="high"></a></nav>
     <section class="loadout" aria-labelledby="loadout-title">
       <div class="section-label"><span>01</span><h2 id="loadout-title">무기를 선택하세요</h2><p>각 무기는 서로 다른 공격 효과를 가집니다.</p></div>
       <div class="weapon-list" role="radiogroup" aria-label="무기 선택">
@@ -111,6 +110,7 @@
         <div class="project-main"><p class="eyebrow">UNITY · C# · 3D PUZZLE ACTION</p><h2><a class="project-title-link" href="exit-from.html" aria-label="EXIT_FROM 상세 내용 보기">EXIT_FROM<span aria-hidden="true">↗</span></a></h2><p class="project-lead">자신의 행동을 기록하고 재현하는 ‘고스트’를 이용해 실험실을 탈출하는 3D 탑뷰 퍼즐 액션 게임입니다. 퍼즐을 풀어가는 과정에서 타인을 도구로 바라보는 시선에 질문을 던집니다.</p>
           <div class="project-meta"><span>기간 <strong>6개월</strong></span><span>형태 <strong>개인 프로젝트</strong></span><span>역할 <strong>기획·개발 전담</strong></span></div>
           <div class="tech-stack" aria-label="EXIT_FROM 사용 기술"><strong>사용 기술</strong><span>Unity</span><span>C#</span><span>행동 기록·재생</span><span>3D Top-View</span><span>레벨 디자인</span><span>UI 시스템</span></div>
+          <figure class="project-still project-still-single"><img src="assets/exit-from-title.png" alt="EXIT_FROM 실제 게임 타이틀 화면. 어두운 실험실과 고스트, 출구가 보인다" loading="lazy"><figcaption><span>IN-GAME / TITLE SCREEN</span><strong>EXIT_FROM 실제 게임 화면</strong></figcaption></figure>
           <div class="project-grid">
             <div><h3>고스트와 퍼즐</h3><p>기록된 행동을 재생하는 고스트로 압력판과 장치를 작동하고, 플레이어와 다른 경로를 이동합니다. 레이저·움직이는 발판·고스트 전용 문·색 변환 발판을 조합해 난이도를 높였습니다.</p></div>
             <div><h3>시스템이 이야기가 되도록</h3><p>친근하던 고스트가 점차 플레이어를 의심하고 비난하며, 익숙했던 퍼즐 풀이를 불편한 선택으로 바꿉니다. 단순한 캡슐 캐릭터와 마지막 시점 전환을 ‘타인을 도구로 보는 시선’이라는 주제에 연결했습니다.</p></div>
@@ -143,6 +143,7 @@
         <div class="project-main"><p class="eyebrow">UNITY · C# · STEAM MULTIPLAYER · PHYSICS PARTY</p><h2><a class="project-title-link" href="elevator.html" aria-label="Elevator 상세 내용 보기">Elevator<span aria-hidden="true">↗</span></a></h2><p class="project-lead">엘리베이터라는 제한된 공간에서 최후의 1인이 남을 때까지 무기로 싸우는 멀티플레이 물리 파티 게임입니다. 층이 바뀔 때마다 등장하는 방해 요소를 버티며 전투를 이어갑니다.</p>
           <div class="project-meta"><span>형태 <strong>개인 프로젝트</strong></span><span>역할 <strong>기획·개발 전담</strong></span><span>플레이 <strong>싱글 AI · Steam 멀티플레이</strong></span></div>
           <div class="tech-stack" aria-label="Elevator 사용 기술"><strong>사용 기술</strong><span>Unity 6</span><span>C#</span><span>Netcode for GameObjects</span><span>Steamworks.NET</span><span>Input System</span><span>URP</span><span>AI Navigation</span></div>
+          <div class="project-stills" aria-label="Elevator 실제 게임 화면"><figure class="project-still project-still-feature"><img src="assets/elevator-combat.png" alt="엘리베이터 안에서 여러 캐릭터가 무기를 들고 전투하는 실제 게임 화면" loading="lazy"><figcaption><span>IN-GAME / COMBAT</span><strong>좁은 공간의 물리 전투</strong></figcaption></figure><figure class="project-still"><img src="assets/elevator-menu.png" alt="Elevator 게임의 싱글 및 멀티플레이 선택 화면" loading="lazy"><figcaption><span>IN-GAME / MENU</span><strong>싱글·멀티플레이</strong></figcaption></figure><figure class="project-still"><img src="assets/elevator-floor.png" alt="새로운 층에 도착한 엘리베이터에서 펼쳐지는 전투 장면" loading="lazy"><figcaption><span>IN-GAME / FLOOR 02</span><strong>층별 환경 변화</strong></figcaption></figure></div>
           <div class="project-grid">
             <div><h3>핵심 전투</h3><p>좁은 엘리베이터 안에서 무기를 획득하고 상대와 싸워 최후의 1인이 되는 전투를 구성했습니다. 제한된 공간 자체가 전투의 긴장감을 만드는 구조입니다.</p></div>
             <div><h3>층별 방해 요소</h3><p>엘리베이터가 층에 도착할 때마다 새로운 방해가 등장합니다. 플레이어는 상대뿐 아니라 매 층의 환경 변화에도 대응해야 합니다.</p></div>
