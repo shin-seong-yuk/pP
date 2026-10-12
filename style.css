@@ -214,8 +214,17 @@ html {scroll-padding-top:78px}
 .project-still figcaption {display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:12px 16px;color:var(--ink);font-size:12px}
 .project-still figcaption span {color:var(--acid);font:10px/1.6 monospace;letter-spacing:.12em}
 @media(max-width:760px) {.project-stills {grid-template-columns:1fr}.project-still-feature {grid-column:auto}.project-still figcaption {display:block}.project-still figcaption strong {display:block;margin-top:4px}}
-.hero .portrait {width:min(255px,68vw)}
-@media(min-width:900px) {.hero {grid-template-columns:minmax(0,778px) minmax(210px,255px);column-gap:18px;padding-top:38px}.hero .portrait {grid-row:2/7;justify-self:start;max-width:255px;margin-top:10px}.hero h1 {font-size:clamp(78px,8vw,112px)}.hero-subtitle {margin-top:10px}.hero-actions {margin-top:16px}.hero-skills {margin-top:16px}.hero-featured {margin-top:12px}}
+.education-card {width:min(100%,420px);margin:28px auto 0;padding:21px 20px 18px;border:1px solid #35413f;background:#0e1415;text-align:left}
+.education-card h2 {display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 12px;color:var(--acid);font:700 11px/1.4 monospace;letter-spacing:.15em}
+.education-card h2 span {color:var(--muted);font:12px/1.4 "Malgun Gothic",sans-serif;letter-spacing:0}
+.education-card ol {margin:0;padding:0;list-style:none}
+.education-card li {display:flex;flex-direction:column;gap:1px;padding:9px 0;border-top:1px solid var(--line)}
+.education-card li strong {color:var(--ink);font-size:13px;font-weight:600;word-break:keep-all}
+.education-card li span {color:var(--muted);font:11px/1.5 monospace}
+.education-award {display:flex;flex-direction:column;gap:5px;margin:9px 0 0;padding:11px 12px;border:1px solid #586b2f;background:#192113}
+.education-award span {color:var(--acid);font:700 10px/1.3 monospace;letter-spacing:.12em}
+.education-award strong {color:var(--ink);font-size:12px;font-weight:600;word-break:keep-all}
+@media(min-width:900px) {.hero {grid-template-columns:minmax(0,778px) minmax(210px,255px);column-gap:18px;padding-top:38px}.hero .education-card {grid-column:2;grid-row:2/7;justify-self:start;width:100%;margin:10px 0 0}.hero h1 {font-size:clamp(78px,8vw,112px)}.hero-subtitle {margin-top:10px}.hero-actions {margin-top:16px}.hero-skills {margin-top:16px}.hero-featured {margin-top:12px}}
 .hero-featured {display:block;width:min(100%,778px);max-width:none;padding:12px;border:1px solid #35413f;background:#0e1415}
 .hero-featured>span {min-height:0;width:100%;margin-inline:0;padding:0 0 10px;border:0}
 .hero-featured .featured-project {position:relative;display:block;width:100%;min-height:0;margin-inline:0;padding:0;overflow:hidden;border:1px solid #51605c;background:#081114;color:var(--ink);text-decoration:none}
@@ -238,3 +247,43 @@ html {scroll-padding-top:78px}
 .detail-project-switcher a {display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:1px solid #566467;color:var(--ink);text-decoration:none;font-size:12px}
 .detail-project-switcher a:hover,.detail-project-switcher a:focus-visible,.detail-project-switcher a[aria-current="page"] {border-color:var(--acid);color:var(--acid)}
 @media(max-width:760px) {.detail-project-switcher a {flex:1 1 calc(50% - 8px)}}
+
+/* A quiet star field keeps the work readable while giving the portfolio a game-world mood. */
+body {background-color:var(--bg);background-image:radial-gradient(circle at 76% 9%,#26334c9c 0,transparent 28%),radial-gradient(circle at 14% 55%,#27223e8a 0,transparent 32%),radial-gradient(circle at 50% 92%,#13323b66 0,transparent 27%),radial-gradient(1px 1px at 7% 14%,#d4e6ffb8 99%,transparent),radial-gradient(1px 1px at 23% 77%,#d4e6ff8c 99%,transparent),radial-gradient(2px 2px at 62% 28%,#d4e6ff99 99%,transparent),radial-gradient(1px 1px at 89% 61%,#d4e6ffad 99%,transparent),radial-gradient(1px 1px at 42% 46%,#d4e6ff91 99%,transparent);background-size:100% 100%,100% 100%,100% 100%,780px 550px,660px 490px,900px 640px,700px 510px,830px 610px;background-attachment:fixed}
+.hero,.projects {background:transparent}
+.portfolio-nav .nav-actions,.portfolio-nav .nav-links {display:flex;align-items:center}
+.portfolio-nav .nav-actions {gap:22px}
+.portfolio-nav .nav-links {gap:26px}
+.theme-toggle {display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px;padding:5px 11px;border:1px solid #53636c;border-radius:3px;background:#131b23;color:var(--ink);font:11px/1.2 "Malgun Gothic",sans-serif;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.theme-toggle:hover {border-color:var(--acid);transform:translateY(-2px)}
+.theme-toggle [aria-hidden] {font-size:16px;line-height:1}
+@media(max-width:760px) {.portfolio-nav {flex-wrap:wrap}.portfolio-nav .nav-actions {width:100%;justify-content:space-between;gap:10px}.portfolio-nav .nav-links {gap:clamp(8px,3vw,15px)}.theme-toggle {min-height:33px;padding:5px 8px}.theme-toggle-text {font-size:10px}}
+
+:root[data-theme="light"] {--bg:#edf2f4;--panel:#fff;--ink:#17242d;--muted:#5b6d78;--line:#c5d2d9;--acid:#366694;--orange:#b65c2c;--cyan:#176889;color-scheme:light}
+:root[data-theme="light"] body {background-image:radial-gradient(circle at 78% 11%,#aec9e8ba 0,transparent 31%),radial-gradient(circle at 12% 60%,#d2d6e9aa 0,transparent 32%),radial-gradient(circle at 54% 95%,#c0dfe0b0 0,transparent 28%),radial-gradient(1px 1px at 16% 23%,#7793b672 99%,transparent),radial-gradient(1px 1px at 64% 71%,#7793b672 99%,transparent);background-size:100% 100%,100% 100%,100% 100%,850px 600px,770px 550px}
+:root[data-theme="light"] ::selection {background:#a4c7e7;color:#102334}
+:root[data-theme="light"] .portfolio-nav {background:#f7fafbec;border-color:#bdcad1}
+:root[data-theme="light"] .portfolio-nav a {color:#526673}
+:root[data-theme="light"] .portfolio-nav .portfolio-brand {color:var(--ink)}
+:root[data-theme="light"] .portfolio-brand span {color:#70828d}
+:root[data-theme="light"] .theme-toggle {background:#fff;border-color:#afc0c9;color:var(--ink)}
+:root[data-theme="light"] .hero-subtitle,:root[data-theme="light"] .project-lead {color:#415564}
+:root[data-theme="light"] .hero-actions a {border-color:#a7bac4;color:#274254;background:#f8fbfc}
+:root[data-theme="light"] .hero-actions a:first-child {background:#2e5d88;border-color:#2e5d88;color:#fff}
+:root[data-theme="light"] .hero-skills li,:root[data-theme="light"] .tech-stack span {background:#f7fafb;border-color:#b9c8d1;color:#405461}
+:root[data-theme="light"] .education-card,:root[data-theme="light"] .hero-featured {background:#f9fbfced;border-color:#b7c9d2}
+:root[data-theme="light"] .education-award {background:#e8f0df;border-color:#a4bd8c}
+:root[data-theme="light"] .weapon {background:#f7fafb;border-color:#b9c8d1;color:var(--ink)}
+:root[data-theme="light"] .weapon.is-selected {background:#e5eef8;border-color:#6486ab;box-shadow:inset 0 -3px #6486ab}
+:root[data-theme="light"] .weapon-icon {color:#456d98}
+:root[data-theme="light"] .project-grid p,:root[data-theme="light"] .project-grid ul,:root[data-theme="light"] .about-story {color:#4b5e69}
+:root[data-theme="light"] .project-links a,:root[data-theme="light"] .dialog-links a,:root[data-theme="light"] .detail-project-switcher a {border-color:#9fb1bd;color:var(--ink)}
+:root[data-theme="light"] .project:target {background:#dce8f198}
+:root[data-theme="light"] .project-dialog {background:#f9fbfc;border-color:#9bafba;color:var(--ink);box-shadow:0 30px 100px #172a4166}
+:root[data-theme="light"] .project-dialog::backdrop {background:#173044aa}
+:root[data-theme="light"] .dialog-top,:root[data-theme="light"] .dialog-bottom {background:#ebf1f4}
+:root[data-theme="light"] .dialog-summary,:root[data-theme="light"] .dialog-sections p {color:#455966}
+:root[data-theme="light"] .dialog-project-switcher button,:root[data-theme="light"] .dialog-close {background:#fff;border-color:#9fb1bd;color:var(--ink)}
+:root[data-theme="light"] .project-still {background:#eaf0f3}
+:root[data-theme="light"] .range-section {background:#111b22;color:#e8efeb}
+@media print {.theme-toggle {display:none!important}body {background:#fff!important}}

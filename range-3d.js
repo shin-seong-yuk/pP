@@ -301,7 +301,7 @@ export function initRange() {
   const weaponGrips={shotgun:[0,-.09,-.1],hammer:[0,-.18,-.28],gun:[0,-.2,-.17],bow:[0,0,-.98],staff:[0,-.18,-.28],sword:[0,0,-.015],dagger:[0,0,-.17]};
   for(const key of Object.keys(configs)){weaponModels[key]=makeWeapon(key);held.add(weaponModels[key]);weaponModels[key].visible=false;}
   held.traverse(o=>{if(o.isMesh){o.castShadow=false;o.receiveShadow=false;}});
-  let weapon='gun',recoil=0,equip=0,navTimer=0,noticeTimer=0,lastFire=-100,shotId=0,triggerPointer=null;
+  let weapon='gun',recoil=0,pendingWeapon=null,swapProgress=1,swapTimer=0,navTimer=0,noticeTimer=0,lastFire=-100,shotId=0,triggerPointer=null;
   let pumpTime=1;
   let visible=false,paused=false,lowPower=false,frame=0,lastTime=0,elapsed=0,contextLost=false,sound=false,audio=null;
   function message(text){clearTimeout(noticeTimer);notice.textContent=text;noticeTimer=setTimeout(()=>notice.textContent='',2600);}
@@ -312,11 +312,25 @@ export function initRange() {
     if(section){section.setAttribute('tabindex','-1');section.focus({preventScroll:true});}
   }
   function select(type) {
-    cancelNavigation();triggerPointer=null;weapon=type;equip=1;
+    if(!configs[type])return;
+    cancelNavigation();triggerPointer=null;
+    if(type!==weapon || pendingWeapon){
+      pendingWeapon=type;
+      swapProgress=reduced.matches||paused?1:0;
+      if(swapProgress===1){weapon=type;pendingWeapon=null;}
+      clearTimeout(swapTimer);
+      range.classList.remove('is-equipping');
+      if(!reduced.matches&&!paused){
+        void range.offsetWidth;
+        range.classList.add('is-equipping');
+        swapTimer=setTimeout(()=>range.classList.remove('is-equipping'),520);
+        soundEffect('swap');
+      }
+    }
     range.dataset.weapon=type;
     document.querySelector('#weapon-readout').textContent=configs[type].name;
     document.querySelector('#weapon-hint').textContent=configs[type].hint;
-    for(const key in weaponModels)weaponModels[key].visible=key===type;
+    for(const key in weaponModels)weaponModels[key].visible=key===weapon;
     radios.forEach(b=>{const active=b.dataset.weapon===type;b.classList.toggle('is-selected',active);b.setAttribute('aria-checked',String(active));b.tabIndex=active?0:-1;});
     document.querySelectorAll('[data-equip]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.equip===type)));
     requestFrame();
@@ -335,9 +349,9 @@ export function initRange() {
     if(!sound||!audio)return;
     const t=audio.currentTime,osc=audio.createOscillator(),gain=audio.createGain();
     osc.type=type==='staff'?'sawtooth':'triangle';
-    osc.frequency.setValueAtTime(impact?140:type==='bow'?570:type==='gun'?200:400,t);
-    osc.frequency.exponentialRampToValueAtTime(30,t+.2);
-    gain.gain.setValueAtTime(.055,t);gain.gain.exponentialRampToValueAtTime(.0001,t+.22);
+    osc.frequency.setValueAtTime(impact?140:type==='bow'?570:type==='gun'?200:type==='swap'?760:400,t);
+    osc.frequency.exponentialRampToValueAtTime(type==='swap'?190:30,t+.2);
+    gain.gain.setValueAtTime(type==='swap'?.025:.055,t);gain.gain.exponentialRampToValueAtTime(.0001,t+.22);
     osc.connect(gain);gain.connect(audio.destination);osc.start(t);osc.stop(t+.23);
   }
   document.querySelector('#sound-toggle').addEventListener('click',async e=>{
@@ -619,6 +633,7 @@ export function initRange() {
   });
   let touchStart=null;
   function fireAtPointer(e) {
+    if(pendingWeapon)return;
     pointerPosition(e);const h=cast();
     if(h){aimPoint.copy(h.point);shoot(h);}
   }
@@ -629,7 +644,7 @@ export function initRange() {
   }
   canvas.addEventListener('pointerdown',e=>{
     touchStart={x:e.clientX,y:e.clientY};
-    if(e.button!==0||weapon!=='gun')return;
+    if(e.button!==0||weapon!=='gun'||pendingWeapon)return;
     triggerPointer=e.pointerId;try{canvas.setPointerCapture?.(e.pointerId);}catch{}fireAtPointer(e);
   });
   canvas.addEventListener('pointerup',releaseTrigger);
@@ -643,6 +658,7 @@ export function initRange() {
   });
   labels.forEach((label,i)=>label.addEventListener('click',()=>{
     if(paused){goTo(targets[i]);return;}
+    if(pendingWeapon)return;
     const p=targets[i].body.localToWorld(new THREE.Vector3(0,.84,.38));
     aimPoint.copy(p);const projected=p.clone().project(camera);mouse.set(projected.x,projected.y);
     const h=cast();if(h)shoot(h);
@@ -683,13 +699,23 @@ export function initRange() {
   });
   function update(dt) {
     elapsed+=dt;
-    recoil=Math.max(0,recoil-dt*5);equip=Math.max(0,equip-dt*4);
+    recoil=Math.max(0,recoil-dt*5);
+    if(pendingWeapon){
+      swapProgress=Math.min(1,swapProgress+dt/.48);
+      if(swapProgress>=.44 && weapon!==pendingWeapon){
+        weapon=pendingWeapon;
+        for(const key in weaponModels)weaponModels[key].visible=key===weapon;
+      }
+      if(swapProgress===1)pendingWeapon=null;
+    }
+    const swapArc=pendingWeapon?Math.sin(swapProgress*Math.PI):0;
     pumpTime=Math.min(1,pumpTime+dt);
     const pumpPhase=THREE.MathUtils.clamp((pumpTime-.12)/.48,0,1);
     weaponModels.shotgun.userData.pump.position.z=-.99+(reduced.matches?0:Math.sin(pumpPhase*Math.PI)*.24);
-    held.position.set(camera.aspect<1?.38:.58,-.4-(reduced.matches?0:equip*.3+recoil*.06),-1.05+recoil*.12);
+    held.position.set((camera.aspect<1?.38:.58)+swapArc*.14,-.4-(reduced.matches?0:swapArc*.62+recoil*.06),-1.05+recoil*.12+swapArc*.13);
     camera.worldToLocal(localAim.copy(aimPoint));
     held.quaternion.setFromUnitVectors(forward,localAim.sub(held.position).normalize());
+    if(swapArc&&!reduced.matches){held.rotateX(swapArc*.48);held.rotateZ(-swapArc*.52);}
     if((weapon==='sword'||weapon==='hammer')&&!reduced.matches)held.rotateZ(-recoil*1.15);
     if((weapon==='gun'||weapon==='shotgun')&&!reduced.matches)held.rotateX(recoil*(weapon==='shotgun'?.25:.12));
     if((weapon==='staff'||weapon==='dagger')&&!reduced.matches)held.rotateX(-recoil*.35);

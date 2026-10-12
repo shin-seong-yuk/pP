@@ -5,22 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="직접 만들고 배포하며 사용자 경험을 개선하는 게임 개발 프로그래머 신성욱의 포트폴리오입니다.">
   <title>신성욱 | Game Developer</title>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}</script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="range.css">
+  <script src="theme.js" defer></script>
   <script src="range-loader.js" defer></script>
   <script src="project-modal.js" defer></script>
 </head>
 <body>
   <a class="skip-content" href="#projects">프로젝트 본문으로 바로 가기</a>
-  <nav class="portfolio-nav" aria-label="포트폴리오 메뉴"><a href="#top" class="portfolio-brand">신성욱<span> / GAME DEVELOPER</span></a><div><a href="#range-title">연습장</a><a href="#projects">프로젝트</a><a href="#about">소개 · 연락처</a></div></nav>
+  <nav class="portfolio-nav" aria-label="포트폴리오 메뉴"><a href="#top" class="portfolio-brand">신성욱<span> / GAME DEVELOPER</span></a><div class="nav-actions"><div class="nav-links"><a href="#range-title">연습장</a><a href="#projects">프로젝트</a><a href="#about">소개 · 연락처</a></div><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="라이트 모드로 전환"><span aria-hidden="true">☀</span><span class="theme-toggle-text">라이트 모드</span></button></div></nav>
   <header class="hero" id="top">
     <p class="hero-kicker">GAME DEVELOPMENT PROGRAMMER</p>
     <h1>신성욱</h1>
     <p class="hero-subtitle">플레이어의 재미를 출발점으로, 직접 만들고 검증하며 끝까지 다듬습니다.</p>
-    <figure class="portrait">
-      <img class="portrait-photo" src="assets/profile-shin-seong-uk.png" alt="신성욱 프로필 사진" width="1122" height="1402" fetchpriority="high">
-      <figcaption><strong>부산대학교 정보컴퓨터공학과</strong><span>입학 성적 우수 · 4년 전액 장학생</span></figcaption>
-    </figure>
+    <aside class="education-card" aria-labelledby="hero-education-title">
+      <h2 id="hero-education-title">EDUCATION <span>학력</span></h2>
+      <ol>
+        <li><strong>용수초등학교</strong><span>2008.03 — 2014.02</span></li>
+        <li><strong>화명중학교</strong><span>2014.03 — 2017.02</span></li>
+        <li><strong>금곡고등학교</strong><span>2017.03 — 2020.02</span></li>
+        <li><strong>부산대학교 정보컴퓨터공학과</strong><span>2023.03 — 현재</span></li>
+      </ol>
+      <p class="education-award"><span>SCHOLARSHIP</span><strong>입학 성적 우수 · 4년 전액 장학</strong></p>
+    </aside>
     <div class="hero-actions"><a href="#range-title">연습장 입장 ↓</a><a href="#projects">프로젝트 먼저 보기 ↗</a></div>
     <div class="hero-skills" aria-label="사용 가능한 기술과 도구">
       <span class="hero-skills-label">SKILLS &amp; TOOLS</span>
@@ -61,6 +69,7 @@
         <canvas id="three-canvas" aria-label="3D 연습장. 마우스나 터치로 허수아비를 조준하고 공격하세요."></canvas>
         <p id="range-loading" class="range-loading" role="status">3D 연습장을 준비하고 있습니다…</p>
         <div class="range-atmosphere" aria-hidden="true"></div>
+        <div class="equip-swoosh" aria-hidden="true"></div>
         <div class="range-hud"><span><b>LIVE TRAINING</b><small>SEONG UK / PORTFOLIO</small></span><span class="hud-right">SECTOR 07<br><small>POSITION LOCKED</small></span></div>
         <button class="range-label" type="button" data-destination="#mefense" data-target="0" aria-label="MeFense 프로젝트 표적"><small>01 / UNITY · WEBGL</small><strong>MeFense</strong></button>
         <button class="range-label" type="button" data-destination="#exit-from" data-target="1" aria-label="EXIT_FROM 프로젝트 표적"><small>02 / FIRST RELEASE</small><strong>EXIT_FROM</strong></button>
@@ -169,8 +178,10 @@
               <section aria-labelledby="education-title">
                 <h3 id="education-title">학력 · 장학</h3>
                 <ul>
-                  <li><strong>금곡고등학교</strong><span>졸업</span></li>
-                  <li><strong>부산대학교 정보컴퓨터공학과</strong></li>
+                  <li><strong>용수초등학교</strong><span>2008.03 ~ 2014.02</span></li>
+                  <li><strong>화명중학교</strong><span>2014.03 ~ 2017.02</span></li>
+                  <li><strong>금곡고등학교</strong><span>2017.03 ~ 2020.02</span></li>
+                  <li><strong>부산대학교 정보컴퓨터공학과</strong><span>2023.03 ~ 현재</span></li>
                   <li><strong>입학 성적 우수 장학생 선정</strong><span>4년 전액 장학</span></li>
                 </ul>
               </section>
