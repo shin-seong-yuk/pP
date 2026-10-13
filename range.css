@@ -1,5 +1,5 @@
 /* The combat scene is layered independently from the portfolio content. */
-.range-section {background:#0c1418;color:#e8efeb;padding-top:32px}
+.range-section {background:transparent;color:var(--ink);padding-top:32px}
 .range-heading .eyebrow {color:#dcaa6c}
 .range-heading h2 {font-size:clamp(32px,4vw,54px);letter-spacing:-.04em}
 .range-heading>p {color:#8eaaa9}
@@ -14,14 +14,8 @@
 .range {width:100%;height:auto;aspect-ratio:16/9;min-height:460px;border:1px solid #33494e;background:#0e2027;touch-action:pan-y;outline-offset:4px}
 .range-world {position:absolute;inset:0;background:url('assets/range-scene.svg') center/100% 100%}
 .range-atmosphere {position:absolute;z-index:5;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,transparent 28%,#010c1266 100%);box-shadow:inset 0 0 80px #020a0a80}
-.equip-swoosh {position:absolute;z-index:8;right:3%;bottom:3%;width:32%;height:42%;pointer-events:none;opacity:0;overflow:hidden}
-.equip-swoosh:before,.equip-swoosh:after {content:"";position:absolute;inset:20% -12%;border-top:2px solid #e9d6a2;border-radius:50%;box-shadow:0 0 18px #f4d68a;transform:rotate(-28deg) translateX(-100%)}
-.equip-swoosh:after {inset:32% -14%;border-color:#9bd4db;box-shadow:0 0 15px #9bd4db;animation-delay:.07s}
-.range.is-equipping .equip-swoosh {opacity:1;animation:equip-glint .52s ease-out forwards}
-.range.is-equipping .equip-swoosh:before,.range.is-equipping .equip-swoosh:after {animation:equip-sweep .42s cubic-bezier(.16,.75,.25,1) both}
-@keyframes equip-sweep {0%{transform:rotate(-28deg) translateX(-100%);opacity:0}35%{opacity:.9}100%{transform:rotate(-28deg) translateX(100%);opacity:0}}
-@keyframes equip-glint {0%,100%{opacity:0}20%,68%{opacity:1}}
-@media(prefers-reduced-motion:reduce) {.equip-swoosh {display:none}}
+/* Equip accents are drawn at the weapon tip in 3D, rather than over the HUD. */
+.equip-swoosh {display:none}
 .range-hud {inset:26px 28px auto;color:#bcd1ca;line-height:1.7;pointer-events:none}
 .range-hud b {font-size:11px;letter-spacing:.25em;font-weight:400}
 .range-hud small {display:block;font-size:8px;letter-spacing:.14em;opacity:.5}

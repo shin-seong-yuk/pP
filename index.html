@@ -13,10 +13,11 @@
   <script src="project-modal.js" defer></script>
 </head>
 <body>
+  <div class="sky-decor" aria-hidden="true"><span class="celestial-stars"></span><span class="celestial-cloud cloud-one"></span><span class="celestial-cloud cloud-two"></span><span class="celestial-cloud cloud-three"></span><span class="celestial-cloud cloud-four"></span><span class="celestial-cloud cloud-five"></span><span class="celestial-cloud cloud-six"></span></div>
+  <div class="hero-celestial" aria-hidden="true"><span class="celestial-orbit"><span class="celestial-moon"></span><span class="celestial-sun"></span></span></div>
   <a class="skip-content" href="#projects">프로젝트 본문으로 바로 가기</a>
   <nav class="portfolio-nav" aria-label="포트폴리오 메뉴"><a href="#top" class="portfolio-brand">신성욱<span> / GAME DEVELOPER</span></a><div class="nav-actions"><div class="nav-links"><a href="#range-title">연습장</a><a href="#projects">프로젝트</a><a href="#about">소개 · 연락처</a></div><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="라이트 모드로 전환"><span aria-hidden="true">☀</span><span class="theme-toggle-text">라이트 모드</span></button></div></nav>
   <header class="hero" id="top">
-    <div class="hero-celestial" aria-hidden="true"><span class="celestial-moon"></span><span class="celestial-sun"></span></div>
     <p class="hero-kicker">GAME DEVELOPMENT PROGRAMMER</p>
     <h1>신성욱</h1>
     <p class="hero-subtitle">플레이어의 재미를 출발점으로, 직접 만들고 검증하며 끝까지 다듬습니다.</p>
@@ -41,9 +42,9 @@
     <section class="loadout" aria-labelledby="loadout-title">
       <div class="section-label"><span>01</span><h2 id="loadout-title">무기를 선택하세요</h2><p>각 무기는 서로 다른 공격 효과를 가집니다.</p></div>
       <div class="weapon-list" role="radiogroup" aria-label="무기 선택">
-        <button class="weapon" type="button" data-weapon="sword" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">⚔</span><strong>검</strong><small>SLASH</small></button>
+        <button class="weapon is-selected" type="button" data-weapon="sword" role="radio" aria-checked="true"><span class="weapon-icon" aria-hidden="true">⚔</span><strong>검</strong><small>SLASH</small></button>
         <button class="weapon" type="button" data-weapon="bow" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">➶</span><strong>활</strong><small>ARROW</small></button>
-        <button class="weapon is-selected" type="button" data-weapon="gun" role="radio" aria-checked="true"><span class="weapon-icon" aria-hidden="true">⌐╦</span><strong>총</strong><small>RIFLE</small></button>
+        <button class="weapon" type="button" data-weapon="gun" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">⌐╦</span><strong>총</strong><small>RIFLE</small></button>
         <button class="weapon" type="button" data-weapon="staff" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">✦</span><strong>지팡이</strong><small>MAGIC</small></button>
         <button class="weapon" type="button" data-weapon="dagger" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">†</span><strong>단검</strong><small>THROW</small></button>
         <button class="weapon" type="button" data-weapon="shotgun" role="radio" aria-checked="false"><span class="weapon-icon" aria-hidden="true">⌐╦</span><strong>산탄총</strong><small>SHOTGUN</small></button>
@@ -60,12 +61,12 @@
         <div><label><input id="auto-open" type="checkbox" checked> 명중 시 프로젝트 이동</label><button id="sound-toggle" type="button" aria-pressed="false">사운드 OFF</button><button id="quality-toggle" type="button" aria-pressed="false">절전 OFF</button><button id="pause-toggle" type="button" aria-pressed="false">일시정지</button></div>
       </div>
       <div class="range-quickbar" role="group" aria-label="연습장 무기 빠른 선택">
-        <button type="button" data-equip="sword" aria-pressed="false">01 <span>검</span></button><button type="button" data-equip="bow" aria-pressed="false">02 <span>활</span></button><button type="button" data-equip="gun" aria-pressed="true">03 <span>총</span></button><button type="button" data-equip="staff" aria-pressed="false">04 <span>지팡이</span></button><button type="button" data-equip="dagger" aria-pressed="false">05 <span>단검</span></button>
+        <button type="button" data-equip="sword" aria-pressed="true">01 <span>검</span></button><button type="button" data-equip="bow" aria-pressed="false">02 <span>활</span></button><button type="button" data-equip="gun" aria-pressed="false">03 <span>총</span></button><button type="button" data-equip="staff" aria-pressed="false">04 <span>지팡이</span></button><button type="button" data-equip="dagger" aria-pressed="false">05 <span>단검</span></button>
         <button id="reset-props" type="button">소품·벽 복구</button>
         <button type="button" data-equip="shotgun" aria-pressed="false">06 <span>산탄총</span></button><button type="button" data-equip="hammer" aria-pressed="false">07 <span>해머</span></button>
         <span class="quickbar-note">벽은 명중한 구획만 손상 · 범위 공격은 주변 구획까지 · 활과 단검은 박힌 채 유지 · 복구 버튼으로 초기화</span>
       </div>
-      <div class="range" id="range" tabindex="0" data-weapon="gun" aria-label="프로젝트를 선택하는 인터랙티브 연습장">
+      <div class="range" id="range" tabindex="0" data-weapon="sword" aria-label="프로젝트를 선택하는 인터랙티브 연습장">
         <div class="range-world" aria-hidden="true"></div>
         <canvas id="three-canvas" aria-label="3D 연습장. 마우스나 터치로 허수아비를 조준하고 공격하세요."></canvas>
         <p id="range-loading" class="range-loading" role="status">3D 연습장을 준비하고 있습니다…</p>
@@ -79,7 +80,7 @@
         <button class="range-label" type="button" data-destination="#about" data-target="4" aria-label="신성욱 소개 표적"><small>05 / THE DEVELOPER</small><strong>About Me</strong></button>
         <div class="crosshair" id="crosshair" aria-hidden="true"><i></i></div>
         <div class="hit-notice" id="hit-notice" role="status" aria-live="polite"></div>
-        <div class="range-bottom"><div><small>EQUIPPED / ∞</small><strong id="weapon-readout">VX-07 / AUTO RIFLE</strong><span id="weapon-hint">클릭 유지 연사 · 총구 화염 · 반동</span></div><div class="range-guide">조준 · 클릭 공격<br><span>총은 누르고 연사 · 스크롤하여 건너뛰기 ↓</span></div></div>
+        <div class="range-bottom"><div><small>EQUIPPED / ∞</small><strong id="weapon-readout">EDGE / LONGSWORD</strong><span id="weapon-hint">검을 휘둘러 검기를 날립니다</span></div><div class="range-guide">조준 · 클릭 공격<br><span>총은 누르고 연사 · 스크롤하여 건너뛰기 ↓</span></div></div>
       </div>
       <div class="range-footer"><span>이동 없이 조준만 · 모바일에서는 터치 · 스크롤은 언제든 가능</span><a href="#projects">프로젝트 바로 보기 ↘</a></div>
       <nav class="range-mobile-targets" aria-label="모바일 프로젝트 바로가기">

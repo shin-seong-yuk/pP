@@ -249,7 +249,7 @@ html {scroll-padding-top:78px}
 @media(max-width:760px) {.detail-project-switcher a {flex:1 1 calc(50% - 8px)}}
 
 /* A quiet star field keeps the work readable while giving the portfolio a game-world mood. */
-body {background-color:var(--bg);background-image:radial-gradient(circle at 76% 9%,#26334c9c 0,transparent 28%),radial-gradient(circle at 14% 55%,#27223e8a 0,transparent 32%),radial-gradient(circle at 50% 92%,#13323b66 0,transparent 27%),radial-gradient(1px 1px at 7% 14%,#d4e6ffb8 99%,transparent),radial-gradient(1px 1px at 23% 77%,#d4e6ff8c 99%,transparent),radial-gradient(2px 2px at 62% 28%,#d4e6ff99 99%,transparent),radial-gradient(1px 1px at 89% 61%,#d4e6ffad 99%,transparent),radial-gradient(1px 1px at 42% 46%,#d4e6ff91 99%,transparent);background-size:100% 100%,100% 100%,100% 100%,780px 550px,660px 490px,900px 640px,700px 510px,830px 610px;background-attachment:fixed}
+body {background-color:var(--bg);background-image:radial-gradient(circle at 76% 9%,#26334c9c 0,transparent 28%),radial-gradient(circle at 14% 55%,#27223e8a 0,transparent 32%),radial-gradient(circle at 50% 92%,#13323b66 0,transparent 27%);background-size:100% 100%;background-attachment:fixed}
 .hero,.projects {background:transparent}
 .portfolio-nav .nav-actions,.portfolio-nav .nav-links {display:flex;align-items:center}
 .portfolio-nav .nav-actions {gap:22px}
@@ -260,7 +260,7 @@ body {background-color:var(--bg);background-image:radial-gradient(circle at 76% 
 @media(max-width:760px) {.portfolio-nav {flex-wrap:wrap}.portfolio-nav .nav-actions {width:100%;justify-content:space-between;gap:10px}.portfolio-nav .nav-links {gap:clamp(8px,3vw,15px)}.theme-toggle {min-height:33px;padding:5px 8px}.theme-toggle-text {font-size:10px}}
 
 :root[data-theme="light"] {--bg:#edf2f4;--panel:#fff;--ink:#17242d;--muted:#5b6d78;--line:#c5d2d9;--acid:#366694;--orange:#b65c2c;--cyan:#176889;color-scheme:light}
-:root[data-theme="light"] body {background-image:radial-gradient(circle at 78% 11%,#aec9e8ba 0,transparent 31%),radial-gradient(circle at 12% 60%,#d2d6e9aa 0,transparent 32%),radial-gradient(circle at 54% 95%,#c0dfe0b0 0,transparent 28%),radial-gradient(1px 1px at 16% 23%,#7793b672 99%,transparent),radial-gradient(1px 1px at 64% 71%,#7793b672 99%,transparent);background-size:100% 100%,100% 100%,100% 100%,850px 600px,770px 550px}
+:root[data-theme="light"] body {background-image:radial-gradient(circle at 20% 16%,#ffe2bb9c 0,transparent 32%),radial-gradient(circle at 78% 11%,#aec9e8ba 0,transparent 36%),radial-gradient(circle at 54% 95%,#c0dfe0b0 0,transparent 32%);background-size:100% 100%}
 :root[data-theme="light"] ::selection {background:#a4c7e7;color:#102334}
 :root[data-theme="light"] .portfolio-nav {background:#f7fafbec;border-color:#bdcad1}
 :root[data-theme="light"] .portfolio-nav a {color:#526673}
@@ -285,20 +285,38 @@ body {background-color:var(--bg);background-image:radial-gradient(circle at 76% 
 :root[data-theme="light"] .dialog-summary,:root[data-theme="light"] .dialog-sections p {color:#455966}
 :root[data-theme="light"] .dialog-project-switcher button,:root[data-theme="light"] .dialog-close {background:#fff;border-color:#9fb1bd;color:var(--ink)}
 :root[data-theme="light"] .project-still {background:#eaf0f3}
-:root[data-theme="light"] .range-section {background:#111b22;color:#e8efeb}
+:root[data-theme="light"] .range-section {background:transparent;color:var(--ink)}
 @media print {.theme-toggle {display:none!important}body {background:#fff!important}}
 
-/* The two sky objects share one stage, so changing either theme reverses the same motion. */
-.hero {position:relative;isolation:isolate}
-.hero>*:not(.hero-celestial) {position:relative;z-index:1}
-.hero-celestial {position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.celestial-moon,.celestial-sun {position:absolute;display:block;width:clamp(112px,14vw,190px);aspect-ratio:1;border-radius:50%;transition:transform 1.05s cubic-bezier(.22,.68,.24,1),opacity .72s ease,box-shadow .9s ease;will-change:transform,opacity}
-.celestial-moon {top:105px;right:34%;background:radial-gradient(circle at 33% 27%,#fffdf0 0,#e0e9e9 38%,#a9b9c4 72%,#6a8295 100%);box-shadow:0 0 32px #dce8ff8c,0 0 105px #9db5d45c,inset -24px -16px 28px #60768978;opacity:.9;transform:translate(0,0) rotate(-8deg)}
+/* A fixed sky follows the viewport while theme colors change like sunrise and sunset. */
+body,.hero,.projects,.range-section,.project {transition:background-color 1.3s ease-in-out,color .85s ease-in-out}
+.range-section {background:transparent;color:var(--ink)}
+.portfolio-nav,.hero-actions a,.hero-skills li,.education-card,.education-award,.hero-featured,.weapon,.tech-stack span,.project-meta,.project-grid p,.project-grid ul,.project-lead,.about-story,.project-dialog,.dialog-top,.dialog-bottom,.dialog-close,.dialog-project-switcher button,.detail-project-switcher a,.project-still {transition:background-color 1.3s ease-in-out,color .85s ease-in-out,border-color 1.3s ease-in-out,box-shadow 1.3s ease-in-out}
+.weapon {transition:background-color 1.3s ease-in-out,color .85s ease-in-out,border-color 1.3s ease-in-out,box-shadow 1.3s ease-in-out,transform .18s ease}
+body {position:relative}
+body > header,body > main,body > footer {position:relative;z-index:1}
+.sky-decor {position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-celestial {position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.celestial-orbit {position:absolute;inset:0;pointer-events:none}
+.hero-celestial::before {content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 22% 18%,#ffd39770 0,#ffc79a26 24%,transparent 56%),linear-gradient(115deg,#ffd5a321,transparent 55%);opacity:0;transition:opacity 1.3s cubic-bezier(.85,0,.15,1)}
+:root[data-theme="light"] .hero-celestial::before {opacity:1}
+.celestial-stars {position:absolute;inset:0;background-image:radial-gradient(2px 2px at 9% 18%,#e4f2ff 98%,transparent),radial-gradient(1px 1px at 28% 68%,#c5deff 98%,transparent),radial-gradient(2px 2px at 64% 27%,#fff6d8 98%,transparent),radial-gradient(1px 1px at 81% 77%,#dae7ff 98%,transparent),radial-gradient(1px 1px at 51% 48%,#cce5ff 98%,transparent);background-size:520px 390px,690px 510px,760px 590px,610px 470px,830px 630px;opacity:.85;filter:brightness(1);transition:opacity 1.3s ease-in-out;animation:star-twinkle 4s ease-in-out infinite alternate}
+:root[data-theme="light"] .celestial-stars {opacity:0}
+.celestial-cloud {position:absolute;width:clamp(125px,17vw,230px);height:clamp(30px,4.5vw,62px);border-radius:100px;background:#ffffffa8;box-shadow:0 12px 30px #93b4ca35,inset 0 -12px 18px #b3c8d376;opacity:0;transform:translateY(25px);transition:opacity 1.3s ease-in-out,transform 1.3s cubic-bezier(.85,0,.15,1)}
+.celestial-cloud::before,.celestial-cloud::after {content:"";position:absolute;bottom:19%;border-radius:50%;background:inherit}
+.celestial-cloud::before {left:16%;width:42%;height:140%}
+.celestial-cloud::after {right:14%;width:32%;height:105%}
+.cloud-one {top:8%;right:12%}.cloud-two {top:23%;left:7%;scale:.7}.cloud-three {top:39%;right:25%;scale:.48}
+.cloud-four {top:54%;left:12%;scale:.62}.cloud-five {top:70%;right:8%;scale:.76}.cloud-six {top:86%;left:30%;scale:.52}
+:root[data-theme="light"] .celestial-cloud {opacity:.55;transform:translateY(0)}
+.celestial-moon,.celestial-sun {position:absolute;display:block;width:clamp(112px,14vw,190px);aspect-ratio:1;border-radius:50%;transition:transform 1.3s cubic-bezier(.85,0,.15,1),opacity 1.3s ease-in-out,box-shadow 1.3s ease-in-out;will-change:transform,opacity}
+.celestial-moon {top:110px;right:5vw;background:radial-gradient(circle at 33% 27%,#fffdf0 0,#e0e9e9 38%,#a9b9c4 72%,#6a8295 100%);box-shadow:0 0 32px #dce8ff8c,0 0 105px #9db5d45c,inset -24px -16px 28px #60768978;opacity:.72;transform:translate(0,0) rotate(-8deg)}
 .celestial-moon:before {content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 32% 47%,#748a984c 0 8%,transparent 9%),radial-gradient(circle at 67% 33%,#8094a04d 0 11%,transparent 12%),radial-gradient(circle at 57% 72%,#70859550 0 7%,transparent 8%)}
-.celestial-sun {top:105px;left:38%;background:radial-gradient(circle at 40% 35%,#fffbed 0,#ffeabc 44%,#f9b878 78%,#f19c6b 100%);box-shadow:0 0 30px 12px #ffdf9e9c,0 0 110px 44px #ffd99883;opacity:0;transform:translate(-65vw,110px) scale(.75)}
+.celestial-sun {top:110px;left:5vw;background:radial-gradient(circle at 40% 35%,#fffbed 0,#ffeabc 44%,#f9b878 78%,#f19c6b 100%);box-shadow:0 0 30px 12px #ffdf9e9c,0 0 110px 44px #ffd99883;opacity:0;transform:translate(-65vw,110px) scale(.75)}
 .celestial-sun:before {content:"";position:absolute;inset:-18%;border:1px solid #ffdb9b75;border-radius:50%;box-shadow:0 0 35px #ffe3b480}
 :root[data-theme="light"] .celestial-moon {opacity:0;transform:translate(66vw,-55px) rotate(32deg) scale(.78)}
-:root[data-theme="light"] .celestial-sun {opacity:.76;transform:translate(0,0) scale(1)}
-@media(max-width:899px) {.celestial-moon {top:5px;right:-40px}.celestial-sun {top:8px;left:-40px;width:105px}:root[data-theme="light"] .celestial-sun {opacity:.55}}
-@media(prefers-reduced-motion:reduce) {.celestial-moon,.celestial-sun {transition:none;will-change:auto}}
-@media print {.hero-celestial {display:none}}
+:root[data-theme="light"] .celestial-sun {opacity:.72;transform:translate(0,0) scale(1)}
+@media(max-width:899px) {.celestial-moon {top:105px;right:-30px;width:105px}.celestial-sun {top:105px;left:-30px;width:105px}:root[data-theme="light"] .celestial-sun {opacity:.55}}
+@keyframes star-twinkle {to {filter:brightness(1.45)}}
+@media(prefers-reduced-motion:reduce) {body,.hero,.projects,.range-section,.project,.hero-celestial::before,.celestial-stars,.celestial-cloud,.celestial-moon,.celestial-sun {transition:none}.celestial-stars {animation:none}.celestial-moon,.celestial-sun {will-change:auto}}
+@media print {.sky-decor,.hero-celestial {display:none}}

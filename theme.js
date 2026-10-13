@@ -15,4 +15,22 @@
     apply(next);
     try { localStorage.setItem('portfolio-theme', next); } catch {}
   });
+
+  const orbit = document.querySelector('.celestial-orbit');
+  if (!orbit || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let previousScroll = window.scrollY;
+  let lag = 0;
+  let frame = 0;
+  const followScroll = () => {
+    lag *= 0.88;
+    orbit.style.transform = `translate3d(0, ${lag.toFixed(2)}px, 0)`;
+    if (Math.abs(lag) > 0.25) frame = requestAnimationFrame(followScroll);
+    else { orbit.style.transform = ''; frame = 0; }
+  };
+  window.addEventListener('scroll', () => {
+    const nextScroll = window.scrollY;
+    lag = Math.max(-120, Math.min(120, lag + (previousScroll - nextScroll) * 0.7));
+    previousScroll = nextScroll;
+    if (!frame) frame = requestAnimationFrame(followScroll);
+  }, { passive: true });
 })();
