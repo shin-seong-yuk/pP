@@ -108,10 +108,10 @@
             <figcaption><span>PROJECT FILM / KO</span><strong>게임 소개 영상</strong><small>재생 버튼을 누르면 이 페이지에서 바로 볼 수 있습니다.</small></figcaption>
           </figure>
           <div class="project-grid">
-            <div><h3>제작 계기</h3><p>단순한 수치 업그레이드를 넘어 수학 자체가 전략이 되는 게임을 만들고 싶었습니다. 같은 포탑과 카드를 얻더라도 수식 구성, 배치 위치, 전력망 설계에 따라 다른 전략이 만들어지도록 했습니다.</p></div>
-            <div><h3>선택이 전략이 되는 규칙</h3><p>수식으로 ‘어떻게 성장할지’를, 지형·사거리·전력망으로 ‘어디에 배치할지’를 결정하게 했습니다. 같은 포탑과 카드를 얻어도 구성과 연결 방식에 따라 다른 전략이 만들어지는 구조입니다.</p></div>
-            <div><h3>설계하며 고민한 부분</h3><ul><li>수학을 쉽게 이해하면서도 전략적으로 활용할 수 있는 구조</li><li>특정 연산·함수 하나에 치우치지 않는 밸런스</li><li>직접 전투와 포탑 방어가 서로를 대체하지 않는 역할 분배</li><li>무작위 맵과 웨이브에서도 판단과 실력이 반영되는 플레이</li></ul></div>
-            <div><h3>의도한 정보를 전달하기</h3><p>수학 기호와 UI가 읽히지 않으면 전략도 이해할 수 없습니다. WebGL에서 누락된 글꼴과 이펙트, 잘리는 UI를 수정하고 실제 웹에 10회 이상 재배포하며 의도한 화면이 전달되는지 확인했습니다.</p></div>
+            <div><h3>제작 계기 · 수학을 게임 속 선택으로</h3><p>학생들이 수학을 어렵게만 느끼지 않도록, 함수를 플레이 속에서 경험하게 하고 싶었습니다. 수식 구성과 배치, 전력망을 전략에 연결해 같은 포탑과 카드로도 다른 선택을 만들도록 했습니다.</p></div>
+            <div><h3>연결해야 작동하는 포탑</h3><p>포탑을 설치하면 무작위 항이 부여되고, 같은 종류의 항들을 연산자로 연결해 식을 만들어야 작동합니다. 불리해 보이는 분수 함수도 무조건 배제하기보다 주어진 항을 어떻게 활용할지 판단하게 했습니다.</p></div>
+            <div><h3>밸런스 사례 · x³ 하나의 과도한 우위</h3><p>초반 x³ 포탑 하나로 40스테이지 이후까지 방어할 수 있어 분수 함수를 추가하고 강력한 함수·연산자의 등장 확률을 낮췄습니다. 직접 플레이에서 변화를 체감했고, 외부 플레이어에게도 밸런스가 잡힌 느낌이라는 피드백을 받았습니다.</p></div>
+            <div><h3>직접 전투가 성장을 만드는 순환</h3><p>플레이어가 직접 마무리한 적에게만 경험치를 주고, 레벨업으로 연산자와 포탑 카드를 얻도록 했습니다. 직접 전투 → 레벨업 → 카드 획득 → 포탑 강화의 순환으로, 포탑 방어와 FPS 플레이가 함께 필요하도록 설계했습니다.</p></div>
           </div>
           <nav class="project-links" aria-label="MeFense 관련 링크"><a href="https://shinseonguk.itch.io/mefense" target="_blank" rel="noopener noreferrer">PLAY ↗</a><a href="https://github.com/shin-seong-yuk/MeFense" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="assets/video/mefense-intro-ko.mp4" target="_blank" rel="noopener noreferrer">VIDEO ↗</a></nav>
         </div>
@@ -125,7 +125,7 @@
           <div class="project-grid">
             <div><h3>고스트와 퍼즐</h3><p>기록된 행동을 재생하는 고스트로 압력판과 장치를 작동하고, 플레이어와 다른 경로를 이동합니다. 레이저·움직이는 발판·고스트 전용 문·색 변환 발판을 조합해 난이도를 높였습니다.</p></div>
             <div><h3>시스템이 이야기가 되도록</h3><p>친근하던 고스트가 점차 플레이어를 의심하고 비난하며, 익숙했던 퍼즐 풀이를 불편한 선택으로 바꿉니다. 단순한 캡슐 캐릭터와 마지막 시점 전환을 ‘타인을 도구로 보는 시선’이라는 주제에 연결했습니다.</p></div>
-            <div><h3>테스트가 바꾼 기획</h3><p>모든 기믹을 미리 정해두려 했지만, 직접 플레이해 보니 예상했던 재미와 실제 경험이 달랐습니다. 이후 기존 장치의 새로운 조합과 맵 구조를 중심으로 퍼즐을 다듬는 방향으로 바꿨습니다.</p></div>
+            <div><h3>퍼즐 사례 · 문은 발판, 고스트는 사다리</h3><p>문을 공중에 배치해 밟고 건너는 발판으로 활용했습니다. 스위치 조작과 레이저 통과에 쓰던 고스트는 마지막에 서로를 밟는 사다리가 됩니다. 같은 장치의 용도를 바꾸며 새로운 해결 방법을 발견하게 했습니다.</p></div>
             <div><h3>회고</h3><p>기획·구현·레벨 디자인·UI·연출을 혼자 맡으며, 디자인의 제약을 작품의 개성으로 바꿨습니다. 장애물의 수보다 공간의 흐름이 중요하며, 기획은 제작 중 발견한 문제를 해결하며 다듬어진다는 것을 배웠습니다.</p></div>
           </div>
           <nav class="project-links" aria-label="EXIT_FROM 관련 링크"><a href="https://shinseonguk.itch.io/exit-from" target="_blank" rel="noopener noreferrer">PLAY ↗</a></nav>
@@ -142,8 +142,8 @@
           </figure>
           <div class="project-grid">
             <div><h3>게임 콘셉트</h3><p>고양이들 사이에 숨은 삵을 찾아내는 마피아형 심리 게임입니다. 직업별 특성과 능력, 미션 수행과 대화를 통해 정보를 모으고 상대의 정체를 추리합니다.</p></div>
-            <div><h3>기획</h3><p>맵 구성과 직업 구성, 게임 규칙과 전체 흐름을 설계했습니다. 플레이어가 이동·미션·토론을 거치며 자연스럽게 의심과 판단의 근거를 만들도록 구성했습니다.</p></div>
-            <div><h3>기획을 플레이로 확인</h3><p>맵과 미션, 게임 로직을 직접 구현하며 규칙이 실제 한 판에서 맞물리는지 확인했습니다. 텍스트·보이스 채팅도 연결해 행동으로 얻은 정보가 대화와 추리로 이어지도록 했습니다.</p></div>
+            <div><h3>직업 설계 · 귀여운 행동, 위험한 능력</h3><p>삵 진영의 ‘꾹꾹이 고양이’는 같은 대상에게 0.5m 이내에서 9스택을 쌓아 원거리 처치를 준비합니다. 재사용 대기 10초와 회의 시 초기화로 제약을 뒀습니다. 현재 설계 단계이며 프로토타입 제작 후 팀 내부 QA를 진행할 예정입니다.</p></div>
+            <div><h3>구현한 미션 · 쉬운 조작과 상태별 안내</h3><p>캣잎 포장은 스크롤 7번으로 완료합니다. 음식 세팅은 부엌에서 F키로 집고 식당에서 같은 키로 놓도록 했으며, 운반 중인 사람에게만 배치 위치를 표시합니다. 두 미션은 구현 후 직접 동작을 확인했습니다.</p></div>
             <div><h3>완성도와 일정의 조율</h3><p>차별화 아이디어를 먼저 정할지, 기본 구조부터 만들지 의견이 갈렸습니다. 동료의 우려를 인정하고 회의와 개발을 병행하는 방안을 제안해 합의했으며, 현재 두 작업을 함께 진행하고 있습니다.</p></div>
           </div>
           <nav class="project-links" aria-label="Not A Cat 관련 링크"><a href="https://github.com/Apptive-Game-Team/mafia" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="assets/video/not-a-cat-intro-ko.mp4" target="_blank" rel="noopener noreferrer">VIDEO ↗</a></nav>
@@ -157,9 +157,9 @@
           <div class="project-stills" aria-label="Elevator 실제 게임 화면"><figure class="project-still project-still-feature"><img src="assets/elevator-combat.png" alt="엘리베이터 안에서 여러 캐릭터가 무기를 들고 전투하는 실제 게임 화면" loading="lazy"><figcaption><span>IN-GAME / COMBAT</span><strong>좁은 공간의 물리 전투</strong></figcaption></figure><figure class="project-still"><img src="assets/elevator-menu.png" alt="Elevator 게임의 싱글 및 멀티플레이 선택 화면" loading="lazy"><figcaption><span>IN-GAME / MENU</span><strong>싱글·멀티플레이</strong></figcaption></figure><figure class="project-still"><img src="assets/elevator-floor.png" alt="새로운 층에 도착한 엘리베이터에서 펼쳐지는 전투 장면" loading="lazy"><figcaption><span>IN-GAME / FLOOR 02</span><strong>층별 환경 변화</strong></figcaption></figure></div>
           <div class="project-grid">
             <div><h3>기획 의도 · 예상 밖의 웃음</h3><p>일상적인 공간에 어울리지 않는 것이 등장할 때 느낀 웃음에서 시작했습니다. 좁은 엘리베이터에서 필연적인 경쟁을 만들고, “여기서 이런 게 왜 나와?”라는 의외성으로 긴장 속의 웃음을 만들고 싶었습니다.</p></div>
-            <div><h3>전투의 문제를 이벤트로 풀기</h3><p>무기가 없는 사람은 버티기만 하고 싸움만 반복하면 지루해질 수 있다고 보았습니다. 문이 열릴 때마다 모두를 위협하는 이벤트를 더해 무기 격차의 중요성을 낮추고, 환경 변화에도 대응하게 하려 했습니다.</p></div>
-            <div><h3>조작감과 상호작용</h3><p>상대가 반대로 움직이면 잡아 끌기가 성립하지 않는 문제를 발견했습니다. 카메라와 동작 시간을 조정하고, 3초 중 0.2초의 입력 제한을 두어 의도한 상호작용을 직접 플레이로 확인했습니다.</p></div>
-            <div><h3>한 판에 진입하는 흐름</h3><p>싱글에서는 AI 인원을 선택하고, 멀티에서는 Steam 방 생성·참가와 준비 과정을 거쳐 전투에 진입합니다. 규칙 설계부터 구현까지 혼자 맡아 조작과 게임 흐름을 함께 확인했습니다.</p></div>
+            <div><h3>우위를 흔드는 이벤트와 공간 변화</h3><p>공룡 꼬리와 거대한 볼링공에 맞으면 무기를 놓칠 수 있게 했습니다. 일정 충격 이상에서는 엘리베이터에 구멍이 생기고, 그곳으로 떨어지면 탈락합니다. 무기 소유와 고정된 위치의 우위를 흔들어 반복되는 전투에 변수를 만들었습니다.</p></div>
+            <div><h3>예측은 어렵게, 대응은 가능하게</h3><p>문이 열리기 전에는 이벤트를 알 수 없지만, 공룡의 위협 동작과 멀리서 굴러오는 볼링공을 보고 대비할 시간을 줬습니다. 벽을 잡고 버티거나 다른 사람 뒤로 숨는 판단이 가능하도록 해, 혼란스러운 재미와 대응의 여지를 함께 설계했습니다.</p></div>
+            <div><h3>0.5초에서 0.2초로 · 조작감 조정</h3><p>서로 반대 방향으로 끌 때 정체되는 경험을 바꾸기 위해 모든 플레이어에게 이동 입력 제한을 적용했습니다. 직접 플레이하며 제한 시간을 0.5초에서 0.2초로 줄였고, 본인 테스트에서는 왕복 움직임을 유지하면서 조작의 답답함이 줄었다고 판단했습니다.</p></div>
           </div>
           <nav class="project-links" aria-label="Elevator 관련 링크"><a href="https://github.com/shin-seong-yuk/Elevator" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></nav>
         </div>
