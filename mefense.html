@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="신성욱의 개인 프로젝트 MeFense. 수학 기반 전략 설계부터 WebGL 배포 문제 해결까지의 제작 과정을 소개합니다.">
+  <meta name="description" content="게임 기획자 신성욱의 MeFense. 수식·배치·전력망을 연결한 전략 시스템과 직접 전투의 역할 분배를 소개합니다.">
   <title>MeFense — 프로젝트 상세 | 신성욱</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +20,7 @@
       <p class="detail-tagline">수학 자체가 전략이 되는 디펜스.</p>
       <p class="project-lead">직접 전투하고, 포탑을 건설하고, 수식을 설계합니다. 수학(Math)과 디펜스(Defense)를 결합한 3D FPS 타워 디펜스 게임입니다.</p>
       <div class="project-meta"><span>개발 기간 <strong>3개월</strong></span><span>참여 형태 <strong>개인 프로젝트</strong></span><span>담당 <strong>기획·개발 전담</strong></span><span>기술 <strong>Unity · C# · URP · WebGL</strong></span></div>
-      <div class="tech-stack" aria-label="MeFense 사용 기술"><strong>사용 기술</strong><span>Unity 6000.3.19f1</span><span>C#</span><span>URP 17.3</span><span>Input System 1.19</span><span>AI Navigation 2.0</span><span>WebGL</span></div>
+      <div class="tech-stack" aria-label="MeFense 기획 기여"><strong>기획 기여</strong><span>수식·성장 규칙</span><span>전력망·배치 전략</span><span>전투 역할 분배</span><span>밸런스 조정</span></div>
       <nav class="project-links" aria-label="MeFense 외부 자료">
         <a href="https://shinseonguk.itch.io/mefense" target="_blank" rel="noopener noreferrer">PLAY ↗</a>
         <a href="https://github.com/shin-seong-yuk/MeFense" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
@@ -47,17 +47,17 @@
     </section>
     <section class="detail-section" id="systems">
       <p class="eyebrow">02 / SYSTEMS</p>
-      <h2>직접 구현한 게임의 구조</h2>
+      <h2>선택이 서로 연결되는 전략 구조</h2>
       <div class="detail-cards">
-        <div><h3>C# 수식 계산 · 포탑 AI</h3><p>함수 항과 연산 카드로 구성한 수식을 포탑의 성능에 연결했습니다. 시간에 따른 능력치 변화를 고려해 포탑을 운용하고, AI Navigation으로 전투 공간의 이동 경로를 구성했습니다.</p></div>
+        <div><h3>수식 · 시간에 따른 성장</h3><p>함수 항과 연산 카드로 구성한 수식을 포탑의 성능에 연결했습니다. 단순히 수치를 높이는 대신 시간에 따른 능력치 변화를 고려해 포탑을 운용하도록 설계했습니다.</p></div>
         <div><h3>건설 · 전력망</h3><p>지형, 사거리, 전력 연결과 포탑 배치를 함께 고려하도록 구성했습니다. 수식뿐 아니라 어디에 설치하고 어떻게 연결하는지도 전략의 일부입니다.</p></div>
-        <div><h3>Input System · 직접 전투</h3><p>Unity Input System을 기반으로 1인칭 조작과 전투 입력을 구성했습니다. 직접 전투가 방어의 빈틈을 보완하면서도 포탑 설계의 의미가 유지되도록 역할을 나눴습니다.</p></div>
-        <div><h3>URP · 절차적 맵 · UI</h3><p>URP 기반 3D 화면에 절차적 맵 생성과 UI 시스템을 구현했습니다. 무작위 조건에서도 판단과 실력이 결과에 반영되도록 구성하고, WebGL 빌드로 실제 배포 환경까지 검증했습니다.</p></div>
+        <div><h3>직접 전투 · 방어의 빈틈 보완</h3><p>플레이어가 1인칭으로 직접 전투에 참여합니다. 직접 전투가 방어의 빈틈을 보완하면서도 포탑 설계의 의미가 유지되도록 각각의 역할을 고민했습니다.</p></div>
+        <div><h3>무작위 맵 · 판단의 여지</h3><p>무작위 맵과 웨이브에서도 지형과 사거리, 배치에 대한 판단이 결과에 반영되도록 구성했습니다. 기획한 규칙은 직접 구현하고 실제 웹 배포 환경에서도 확인했습니다.</p></div>
       </div>
     </section>
     <section class="detail-section" id="design">
       <p class="eyebrow">03 / DESIGN QUESTIONS</p>
-      <h2>개발하며 고민한 균형</h2>
+      <h2>재미를 유지하기 위한 설계의 균형</h2>
       <dl class="design-questions">
         <div><dt>접근성과 전략성</dt><dd>수학 시스템이 어렵게 느껴지지 않으면서도, 수식의 구성에 따라 전략적 차이가 생기도록 설계했습니다.</dd></div>
         <div><dt>강력한 조합과 밸런스</dt><dd>강력한 연산이나 함수 하나만으로 게임이 지나치게 쉬워지지 않도록 밸런스를 조정했습니다.</dd></div>
@@ -67,7 +67,7 @@
     </section>
     <section class="detail-section" id="webgl">
       <p class="eyebrow">04 / TROUBLESHOOTING</p>
-      <h2>에디터에서의 완성을<br>실제 웹의 경험으로.</h2>
+      <h2>전략을 판단할 정보가<br>제대로 전달되는가?</h2>
       <p>Unity 에디터에서 정상적으로 동작하던 게임을 WebGL로 배포하자 한글과 일부 수학 기호가 사라지고, 발광 효과와 UI 아이콘이 의도와 다르게 표시됐습니다. 브라우저 콘솔과 Unity 로그를 분석해 현상별 원인을 분리했습니다.</p>
       <div class="detail-cards">
         <div><h3>폰트 누락</h3><p>WebGL에서는 운영체제 폰트에 의존한 대체 글꼴을 안정적으로 사용할 수 없었습니다. 한글과 수학 기호를 포함한 폰트를 프로젝트 리소스로 추가하고, UI가 공통으로 사용하도록 적용 로직을 통합했습니다.</p></div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="신성욱의 1인 개발 프로젝트 Elevator. Steam 멀티플레이, 물리 전투와 층별 방해 요소를 결합한 파티 액션 게임입니다.">
+  <meta name="description" content="게임 기획자 신성욱의 Elevator. 좁은 공간의 경쟁과 예상 밖의 이벤트를 통해 긴장과 웃음을 함께 설계한 물리 파티 게임입니다.">
   <title>Elevator — 프로젝트 상세 | 신성욱</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,18 +12,19 @@
   <main class="detail-main">
     <nav class="detail-project-switcher" aria-label="프로젝트 선택"><span>SELECT PROJECT</span><a href="mefense.html">01 MeFense</a><a href="exit-from.html">02 EXIT_FROM</a><a href="not-a-cat.html">03 Not A Cat</a><a href="elevator.html" aria-current="page">04 Elevator</a></nav>
     <section class="detail-hero" aria-labelledby="detail-title">
-      <p class="eyebrow">STEAM MULTIPLAYER · PHYSICS PARTY · SOLO PROJECT</p>
+      <p class="eyebrow">GAME DESIGN · COMBAT &amp; FLOOR EVENTS · SOLO PROJECT</p>
       <h1 id="detail-title">Elevator</h1>
       <p class="detail-tagline">문이 열릴 때마다 전투의 조건이 바뀐다.</p>
       <p class="project-lead">엘리베이터라는 제한된 공간에서 무기로 싸워 최후의 1인이 되는 멀티플레이 물리 파티 게임입니다. Steam으로 다른 플레이어와 방을 만들거나, 싱글에서 AI와 전투할 수 있습니다.</p>
       <div class="project-meta"><span>참여 형태 <strong>개인 프로젝트</strong></span><span>담당 <strong>기획·개발 전담</strong></span><span>플레이 <strong>싱글 AI · Steam 멀티플레이</strong></span><span>기술 <strong>Unity · C#</strong></span></div>
-      <div class="tech-stack" aria-label="Elevator 사용 기술"><strong>사용 기술</strong><span>Unity 6000.3.19f1</span><span>C#</span><span>Netcode for GameObjects 2.7</span><span>Steamworks.NET</span><span>Input System 1.19</span><span>URP 17.3</span><span>AI Navigation 2.0</span></div>
+      <div class="tech-stack" aria-label="Elevator 기획 기여"><strong>기획 기여</strong><span>생존·전투 규칙</span><span>층별 이벤트</span><span>잡기 상호작용</span><span>조작감 검증</span></div>
       <nav class="project-links" aria-label="Elevator 외부 자료"><a href="https://github.com/shin-seong-yuk/Elevator" target="_blank" rel="noopener noreferrer">GITHUB ↗</a></nav>
     </section>
-    <nav class="detail-contents" aria-label="상세 페이지 목차"><a href="#concept">01 핵심 콘셉트</a><a href="#combat">02 전투 구조</a><a href="#multiplayer">03 멀티플레이</a><a href="#floors">04 층별 변수</a><a href="#solo">05 1인 개발</a></nav>
+    <nav class="detail-contents" aria-label="상세 페이지 목차"><a href="#concept">01 기획 의도</a><a href="#combat">02 전투 구조</a><a href="#multiplayer">03 한 판의 진입</a><a href="#floors">04 이벤트 설계</a><a href="#solo">05 조작감 검증</a></nav>
     <section class="detail-section" id="concept">
       <p class="eyebrow">01 / CONCEPT</p><h2>도망칠 수 없는 공간에서<br>최후의 1인을 가린다.</h2>
-      <p>넓은 전장이 아니라 엘리베이터 한 칸을 전투 공간으로 삼았습니다. 플레이어들은 가까운 거리에서 무기를 두고 싸우며, 마지막까지 살아남은 한 명이 승리합니다.</p>
+      <p>일상적인 공간에 어울리지 않는 것이 나타날 때 느꼈던 웃음에서 기획을 시작했습니다. “엘리베이터에 이런 게 왜 있지?”라는 의외성을 게임의 변수로 삼고 싶었습니다.</p>
+      <p>엘리베이터 한 칸을 전투 공간으로 정해 상대와 필연적으로 마주치고 경쟁하도록 했습니다. 가까운 거리에서 무기를 두고 싸우고, 마지막까지 남은 한 명이 승리하는 명확한 목표로 긴장감을 만들었습니다.</p>
     </section>
     <section class="detail-section" id="combat">
       <p class="eyebrow">02 / COMBAT</p><h2>공간의 제약을 전투의 재미로</h2>
@@ -44,11 +45,14 @@
     </section>
     <section class="detail-section" id="floors">
       <p class="eyebrow">04 / FLOOR EVENTS</p><h2>층이 바뀔 때마다 추가되는 방해</h2>
-      <p>엘리베이터가 새로운 층에 도착할 때마다 전투를 방해하는 요소가 등장합니다. 플레이어는 상대의 공격뿐 아니라 변화하는 환경에도 대응해야 하며, 층 이동이 다음 상황에 대한 긴장감을 만듭니다.</p>
+      <p>무기가 없는 플레이어가 맞으며 버티기만 하는 상황은 불합리하고, 싸움만 반복하면 지루해질 수 있다고 보았습니다. 그래서 문이 열릴 때마다 모두에게 위협적인 이벤트를 등장시켜 무기 소유의 중요성을 낮추려 했습니다.</p>
+      <p>플레이어가 상대뿐 아니라 환경에도 대응하게 만드는 동시에, 엘리베이터에서 나올 것 같지 않은 상황을 마주하며 “아니, 여기서 이런 게 왜 나와!”라며 웃는 경험을 의도했습니다. 층별 이벤트는 전투의 흐름을 바꾸고 게임의 유머를 전달하는 콘텐츠입니다.</p>
     </section>
     <section class="detail-section" id="solo">
-      <p class="eyebrow">05 / SOLO DEVELOPMENT</p><h2>핵심 규칙부터 전투 흐름까지 직접 구현</h2>
-      <p>게임의 아이디어와 규칙을 설계하고, 전투와 층 진행 로직을 직접 구현하고 있습니다. Input System으로 조작 체계를 구성하고, AI Navigation을 싱글 플레이의 AI 이동에 활용했습니다. URP 기반 화면과 제한된 공간, 생존 경쟁, 층별 변수가 하나의 플레이 흐름으로 연결되는지를 빠르게 만들고 검증하는 데 집중했습니다.</p>
+      <p class="eyebrow">05 / PROTOTYPING &amp; PLAYTEST</p><h2>의도한 행동이 실제로 성립하는가?</h2>
+      <p>기획부터 전투와 층 진행, 모델 제작까지 혼자 맡아 직접 플레이로 확인했습니다. AI는 모델 제작과 코드 작성·구조 설계의 보조 도구로 활용했습니다.</p>
+      <div class="detail-cards"><div><h3>문제 · 잡아도 끌리지 않는 상대</h3><p>상대가 반대 방향으로 입력하면 붙잡아 끌기가 성립하지 않았습니다. 액션의 핵심 행동이 플레이어의 기대와 어긋난다는 점을 발견했습니다.</p></div><div><h3>조정 · 입력과 동작의 균형</h3><p>카메라 움직임과 캐릭터 동작 시간을 조정하고, 3초의 동작 중 2.8초는 입력을 반영하고 0.2초는 입력을 받지 않도록 변경했습니다. 수정 후 직접 플레이하며 끌기 동작을 확인했습니다.</p></div></div>
+      <p class="detail-result">아이디어의 의외성뿐 아니라 플레이어가 의도한 행동을 실행할 수 있는지도 중요했습니다. 규칙·환경 변화·조작 반응을 함께 설계하고 실제 플레이로 확인하는 관점을 얻었습니다.</p>
       <a class="detail-back" href="index.html#elevator">← 프로젝트 목록으로 돌아가기</a>
     </section>
   </main>
